@@ -1,13 +1,47 @@
+
 <!--The content below is only a placeholder and can be replaced.-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div align = "center">
+	<span>
+		<p>Round {{round}}</p>
+		<button (click)="changeRound('plus')">
+			<i class="fa fa-caret-up" aria-hidden="true"></i>
+		</button>
+		<button (click)="changeRound('minus')">
+			<i class="fa fa-caret-down" aria-hidden="true"></i>
+		</button>
+		<button (click)="addPlayer()">
+			<i class="fa fa-user-plus" aria-hidden="true"></i>
+		</button>
+	</span>
+	
+</div>
 <table id="DefaultTable" align="center">
   <tr>
-      <th></th><th>Bid</th><th>Names</th><th>Scores</th><th></th>
+      <th></th><th>Bid</th><th>Names</th><th>Scores <i class="fa fa-sort" (click)="sortPlayersByScore()"></i></th><th></th>
   </tr>
   <tr *ngFor="let player of players; let i=index">
-      <td (click)="gotCall(i)">Click Me</td>
-      <td><input type="number" pattern="[0-9]*" [(ngModel)]="player.bid"></td>
-      <td><input type="text" class="inputName" [(ngModel)]="player.name" value="{{player.name}}"></td>
-      <td><input type="number" pattern="[0-9]*" [(ngModel)]="player.score"></td>
-      <td (click)="deletePlayer(i)">Delete me</td>
+    <td>
+			<button (click)="gotCall(i)">
+				<i class="fa fa-check-circle"></i>
+			</button>
+		</td>
+		<td>
+			<input type="number" pattern="[0-9]*" [(ngModel)]="player.bid" tabindex="2">
+		</td>
+		<td>
+			<span><input type="text" class="inputName" [(ngModel)]="player.name" value="{{player.name}}"></span>
+		</td>
+		<td>
+			<input type="number" pattern="[0-9]*" [(ngModel)]="player.score"  tabindex="3">
+		</td>
+    <td>
+			<button (click)="deletePlayer(i)">
+				<i class="fa fa-trash"></i>
+			</button>
+		</td>
   </tr>
 </table>
+<div align = "center">
+    <button (click)="debugPlayers()">Debug</button>
+</div>

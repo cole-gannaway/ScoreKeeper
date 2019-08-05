@@ -1,0 +1,60 @@
+/*Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+* {
+	font-size: 30px;
+	font-family: 'Raleway', sans-serif;
+}
+th {
+	padding: 16px;
+}
+th, td {
+	color: white;
+	border: 1px solid white;
+	border-radius: 5%;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+button{
+	border-radius: 8px;
+	border-width: medium;
+	background-color: transparent;
+	color: white ; 
+}
+p{
+	color: white;
+	display: inline-block;
+}
+input {
+    background: transparent;
+    color: white;
+	border: 0px;
+}
+input.inputName{
+	width:140px;
+}
+td [type="number"]{
+	width: 50px;
+}
+
+i.fa.fa-check-circle {
+    color: green;
+}
+i.fa.fa-caret-up {
+    color: green;
+}
+i.fa.fa-user-plus {
+    color: green;
+}
+i.fa.fa-caret-down {
+    color: rgb(253, 90, 90);
+}
+i.fa.fa-times{
+    color: rgb(253, 90, 90);
+}
+i.fa.fa-trash{
+    color: rgb(253, 90, 90);
+}
+
+
