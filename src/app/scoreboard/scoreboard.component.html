@@ -1,1 +1,13 @@
-<p>scoreboard works!</p>
+<!--The content below is only a placeholder and can be replaced.-->
+<table id="DefaultTable" align="center">
+  <tr>
+      <th></th><th>Bid</th><th>Names</th><th>Scores</th><th></th>
+  </tr>
+  <tr *ngFor="let player of players; let i=index">
+      <td (click)="gotCall(i)">Click Me</td>
+      <td><input type="number" pattern="[0-9]*" [(ngModel)]="player.bid"></td>
+      <td><input type="text" class="inputName" [(ngModel)]="player.name" value="{{player.name}}"></td>
+      <td><input type="number" pattern="[0-9]*" [(ngModel)]="player.score"></td>
+      <td (click)="deletePlayer(i)">Delete me</td>
+  </tr>
+</table>
