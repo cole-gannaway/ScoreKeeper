@@ -9,7 +9,7 @@ export class Player {
     wagerClassName: string;
 
     constructor(){
-        this.name = '';
+        this.name = null;
         this.bid = null;
         this.score = 0;
         this.wager = null;

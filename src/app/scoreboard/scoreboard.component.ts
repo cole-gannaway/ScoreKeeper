@@ -16,12 +16,8 @@ export class ScoreboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    var numPlayers = 3;
-    for (var i = 0; i < numPlayers; i++){
-      var createdPlayer:Player = new Player();
-      createdPlayer.setName('Created' + i);
-      this.players.push(createdPlayer);
-    }
+    var createdPlayer:Player = new Player();
+    this.players.push(createdPlayer);
     console.log(this.players);
   }
   sortPlayersByScore(){
@@ -30,7 +26,6 @@ export class ScoreboardComponent implements OnInit {
   }
   addPlayer(){
     var createdPlayer:Player = new Player();
-    createdPlayer.setName('NewPlayer');
     this.players.push(createdPlayer);
   }
   deletePlayer(i:Number){
