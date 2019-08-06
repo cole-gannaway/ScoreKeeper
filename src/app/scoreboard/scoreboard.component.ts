@@ -39,15 +39,15 @@ export class ScoreboardComponent implements OnInit {
   }
   gotCall(i){
     var player = this.players[i];
-    player.score = Number(player.score) + Number(10);
+    player.score = Number(player.score) + Number(player.getBid()) + Number(10);
   }
   gotJeopardyCall(i){
     var player = this.players[i];
-    player.score = Number(player.score) + Number(player.wager);
+    player.score = Number(player.score) + Number(player.getWager());
   }
   missJeopardyCall(i){
     var player = this.players[i];
-    player.score = Number(player.score) - Number(player.wager);
+    player.score = Number(player.score) - Number(player.getWager());
   }
   debugPlayers(){
     console.log(this.players);
@@ -62,15 +62,16 @@ export class ScoreboardComponent implements OnInit {
     else {
       console.error('Invalid value of dir = ' + dir);
     }
-    // reset bids
+    // reset things
     for (var p of this.players){
-      p.bid = 0;
+      p.resetBid();
+      p.resetWager();
     }
   }
-  toggleJeopardyMode(){
+  toggleJeopardyMode(event){
     var jeopardy = document.getElementById('JeopardyModeTable');
     var defTable = document.getElementById('DefaultTable');
-    if (jeopardy.hidden){
+    if (event.source.checked){
       defTable.hidden = true;
       jeopardy.hidden = false;
     }
@@ -80,10 +81,10 @@ export class ScoreboardComponent implements OnInit {
     }
   }
   toggleWagerInput(event,i){
-    // var newClassName = Player.getInitialWagerClassName();
-    // if (event.source.checked){
-    //   newClassName = 'key';
-    // }
-    // this.players[i].setWagerClassName(newClassName);
+    var newClassName = Player.getInitWagerClassName();
+    if (event.source.checked){
+      newClassName = 'key';
+    }
+    this.players[i].setWagerClassName(newClassName);
   }
 }

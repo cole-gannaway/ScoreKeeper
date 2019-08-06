@@ -21,27 +21,60 @@
       <th></th><th>Bid</th><th>Names</th><th>Scores <i class="fa fa-sort" (click)="sortPlayersByScore()"></i></th><th></th>
   </tr>
   <tr *ngFor="let player of players; let i=index">
-    <td>
-			<button (click)="gotCall(i)">
-				<i class="fa fa-check-circle"></i>
-			</button>
+    	<td (click)="gotCall(i)">
+			<i class="fa fa-check-circle"></i>
 		</td>
 		<td>
-			<input type="number" pattern="[0-9]*" [(ngModel)]="player.bid" tabindex="2">
+			<input type="number" class="bidInput" pattern="[0-9]*" placeholder="0" [(ngModel)]="player.bid" tabindex="2">
 		</td>
 		<td>
-			<span><input type="text" class="inputName" [(ngModel)]="player.name" value="{{player.name}}"></span>
+			<span>
+				<input type="text" class="inputName" [(ngModel)]="player.name" value="{{player.name}}">
+			</span>
 		</td>
 		<td>
-			<input type="number" pattern="[0-9]*" [(ngModel)]="player.score"  tabindex="3">
+			<span>
+				<input type="number" class="scoreInput" pattern="[0-9]*" [(ngModel)]="player.score"  tabindex="3">
+			</span>
 		</td>
-    <td>
-			<button (click)="deletePlayer(i)">
-				<i class="fa fa-trash"></i>
-			</button>
+		<td (click)="deletePlayer(i)">
+			<i class="fa fa-trash"></i>
 		</td>
   </tr>
 </table>
+<table id="JeopardyModeTable" align="center" hidden>
+	<tr>
+		<th></th><th></th><th>Wager</th><th>Hide</th><th>Names</th><th>Scores <i class="fa fa-sort" (click)="sortPlayersByScore()"></i></th><th></th>
+	</tr>
+	<tr *ngFor="let player of players; let i=index">
+		<td (click)="gotJeopardyCall(i)">
+			<i class="fa fa-check-circle"></i>
+		</td>
+		<td (click)="missJeopardyCall(i)">
+			<i class="fa fa-times"></i></td>
+		<td>
+			<input type="number" class="{{player.wagerClassName}}" pattern="[0-9]*" placeholder="0" [(ngModel)]="player.wager" tabindex="2">
+		</td>
+		<td>
+			<mat-slide-toggle color="warn" (change)="toggleWagerInput($event,i)"></mat-slide-toggle>
+		</td>
+		<td>
+			<span>
+				<input type="text" class="inputName" [(ngModel)]="player.name" value="{{player.name}}">
+			</span>
+		</td>
+		<td>
+			<span>
+				<input type="number" class="scoreInput" pattern="[0-9]*" [(ngModel)]="player.score"  tabindex="3">
+			</span>
+		</td>
+		<td (click)="deletePlayer(i)">
+			<i class="fa fa-trash"></i>
+		</td>
+	</tr>
+</table>
+
 <div align = "center">
-    <button (click)="debugPlayers()">Debug</button>
+	<mat-slide-toggle color="warn" (change)="toggleJeopardyMode($event)"></mat-slide-toggle>
+	<p>Jeopardy Mode</p>
 </div>
