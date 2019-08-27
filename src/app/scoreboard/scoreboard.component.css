@@ -51,6 +51,9 @@ input.bidInput, input.wagerInput, input.key, input.keyShow{
 input.scoreInput{
 	width: 120px;
 }
+td i{
+	width: 60px;
+}
 i.fa.fa-check-circle {
     color: green;
 }
