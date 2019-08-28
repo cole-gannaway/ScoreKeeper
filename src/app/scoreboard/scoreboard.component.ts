@@ -18,10 +18,8 @@ export class ScoreboardComponent implements OnInit {
   ngOnInit() {
     var createdPlayer:Player = new Player();
     this.players.push(createdPlayer);
-    console.log(this.players);
   }
   sortPlayersByScore(){
-    console.log('About to sort');
     this.players = this.players.sort(Player.getComparatorScores());
   }
   addPlayer(){
@@ -29,7 +27,6 @@ export class ScoreboardComponent implements OnInit {
     this.players.push(createdPlayer);
   }
   deletePlayer(i:Number){
-    console.log('i is ' + i);
     this.players.splice(Number(i), 1);
   }
   gotCall(i){
@@ -61,6 +58,8 @@ export class ScoreboardComponent implements OnInit {
     for (var p of this.players){
       p.resetBid();
       p.resetWager();
+      p.resetWagerHide();
+      p.resetWagerClassName();
     }
   }
   toggleJeopardyMode(event){
@@ -75,11 +74,20 @@ export class ScoreboardComponent implements OnInit {
       jeopardy.hidden = true;
     }
   }
-  toggleWagerInput(event,i){
+  toggleWagerInput(i){
     var newClassName = Player.getInitWagerClassName();
-    if (event.source.checked){
-      newClassName = 'key';
+    console.log(this.players[i].hide);
+    if (this.players[i].hide){
+      newClassName = 'noShow';
     }
     this.players[i].setWagerClassName(newClassName);
+  }
+  foo(i){
+    if (this.players[i].wager > this.players[i].score){
+      this.players[i].wager = this.players[i].score
+    }
+  }
+  toggleHidePlayer(i){
+    this.players[i].hide = !this.players[i].hide;
   }
 }

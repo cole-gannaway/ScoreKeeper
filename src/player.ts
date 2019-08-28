@@ -8,12 +8,15 @@ export class Player {
     wager: Number;
     wagerClassName: string;
 
+    hide: boolean;
+
     constructor(){
         this.name = null;
         this.bid = null;
         this.score = 0;
         this.wager = null;
         this.wagerClassName = initWagerClassName;
+        this.hide = false;
     }
     setName(n:string) {
         this.name = n;
@@ -44,6 +47,12 @@ export class Player {
     }
     setWagerClassName (n:string){
         this.wagerClassName = n;
+    }
+    resetWagerClassName (){
+        this.wagerClassName = initWagerClassName;
+    }
+    resetWagerHide(){
+        this.hide = false;
     }
     static getComparatorScores (){
         return function(a:Player, b:Player) {

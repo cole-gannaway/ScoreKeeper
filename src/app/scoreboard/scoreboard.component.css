@@ -40,12 +40,18 @@ input {
 	border: 0px;
 }
 input.key {
-	font-family: 'password';	
+	font-family: 'password';
 }
 input.inputName{
 	width:140px;
 }
-input.bidInput, input.wagerInput, input.key, input.keyShow{
+input.noShow{
+	display: none;
+}
+input[type="range"].wagerInput{
+	width: 100px;
+}
+input.bidInput, input.wagerInput, input.key, input.keyShow, input.numberInput{
 	width: 50px;
 }
 input.scoreInput{
