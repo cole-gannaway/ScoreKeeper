@@ -1,86 +1,32 @@
 
 <!--The content below is only a placeholder and can be replaced.-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script>
-	function validateMax(item, maxVal){
-		console.log(item);
-		console.log(maxVal);
-	}
-</script>
-<div align = "center">
-	<span>
-		<p>Round {{round}}</p>
-		<button (click)="changeRound('plus')">
-			<i class="fa fa-caret-up" aria-hidden="true"></i>
-		</button>
-		<button (click)="changeRound('minus')">
-			<i class="fa fa-caret-down" aria-hidden="true"></i>
-		</button>
-		<button (click)="addPlayer()">
-			<i class="fa fa-user-plus" aria-hidden="true"></i>
-		</button>
-	</span>
-	
-</div>
-<table id="DefaultTable" align="center">
-  <tr>
-      <th></th><th>Bid</th><th>Names</th><th>Scores <i class="fa fa-sort" (click)="sortPlayersByScore()"></i></th><th></th>
-  </tr>
-  <tr *ngFor="let player of players; let i=index">
-    	<td (click)="gotCall(i)">
-			<i class="fa fa-check-circle"></i>
-		</td>
-		<td>
-			<input type="number" class="bidInput" pattern="[0-9]*" placeholder="0" [(ngModel)]="player.bid" tabindex="2">
-		</td>
-		<td>
-			<span>
-				<input type="text" class="inputName" placeholder="New" [(ngModel)]="player.name" value="{{player.name}}">
-			</span>
-		</td>
-		<td>
-			<span>
-				<input type="number" class="scoreInput" pattern="[0-9]*" [(ngModel)]="player.score"  tabindex="3">
-			</span>
-		</td>
-		<td (click)="deletePlayer(i)">
-			<i class="fa fa-trash"></i>
-		</td>
-  </tr>
-</table>
-<table id="JeopardyModeTable" align="center" hidden>
-	<tr>
-		<th></th><th></th><th>Names</th><th>Bid</th><th>Wager</th><th>Hide</th><th></th>
-	</tr>
-	<tr *ngFor="let player of players; let i=index">
-		<td (click)="gotJeopardyCall(i)">
-			<i class="fa fa-check-circle"></i>
-		</td>
-		<td (click)="missJeopardyCall(i)">
-			<i class="fa fa-times"></i>
-		</td>
-		<td>
-			<span>
-				<input type="text" class="inputName" placeholder="New" [(ngModel)]="player.name" value="{{player.name}}">
-			</span>
-		</td>
-		<td>
-			<input type="number" class="{{player.wagerClassName}}" pattern="[0-9]*" placeholder="0" [(ngModel)]="player.bid" tabindex="2">
-		</td>
-		<td>
-			<input type="number" class="{{player.wagerClassName}}" (change)="foo(i)" pattern="[0-9]*" placeholder="0" [(ngModel)]="player.wager" tabindex="2">
-			<input type="range" class="{{player.wagerClassName}}" step="1" [(ngModel)]="player.wager" max="{{player.score}}" min="0">
-		</td>
-		<td>
-			<mat-slide-toggle color="warn" [(ngModel)]="player.hide" (change)="toggleWagerInput(i)"></mat-slide-toggle>
-		</td>
-		<td (click)="deletePlayer(i)">
-			<i class="fa fa-trash"></i>
-		</td>
-	</tr>
-</table>
 
-<div align = "center">
-	<mat-slide-toggle color="warn" (change)="toggleJeopardyMode($event)"></mat-slide-toggle>
-	<p>Jeopardy Mode</p>
-</div>
+<table id="DefaultTable" align="center">
+    <tr>
+        <th></th><th>Bid</th><th>Name</th><th>Score <i class="fa fa-sort" (click)="sortPlayersByScore()"></i></th><th></th>
+    </tr>
+    <tr *ngFor="let player of players; let i=index">
+          <td (click)="gotCall(i)">
+              <i class="fa fa-check-circle"></i>
+          </td>
+          <td>
+              <input type="number" class="bidInput" pattern="[0-9]*" placeholder="0" [(ngModel)]="player.bid" tabindex="2">
+          </td>
+          <td>
+              <span>
+                  <input type="text" class="inputName" placeholder="New" [(ngModel)]="player.name" value="{{player.name}}">
+              </span>
+          </td>
+          <td>
+              <span>
+                  <input type="number" class="scoreInput" pattern="[0-9]*" [(ngModel)]="player.score"  tabindex="3">
+              </span>
+          </td>
+          <td (click)="deletePlayer(i)">
+              <i class="fa fa-trash"></i>
+          </td>
+    </tr>
+  </table>
+
+
+

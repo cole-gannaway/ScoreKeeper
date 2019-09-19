@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div align = "center">
+	<span>
+		<p>Round {{round}}</p>
+		<button (click)="changeRound('plus')">
+			<i class="fa fa-caret-up" aria-hidden="true"></i>
+		</button>
+		<button (click)="changeRound('minus')">
+			<i class="fa fa-caret-down" aria-hidden="true"></i>
+		</button>
+		<button (click)="addPlayer()">
+			<i class="fa fa-user-plus" aria-hidden="true"></i>
+		</button>
+	</span>
+	
+</div>
+<app-scoreboard [data]='players'></app-scoreboard>
+<app-jeopardy-scoreboard [data]='players'></app-jeopardy-scoreboard>
+<div align = "center">
+	<mat-slide-toggle color="warn" (change)="toggleJeopardyMode($event)"></mat-slide-toggle>
+	<p>Jeopardy Mode</p>
+</div>
