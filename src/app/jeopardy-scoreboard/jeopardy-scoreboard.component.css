@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
 * {
-	font-size: 26px;
+	font-size: 16px;
 	font-family: 'Raleway', sans-serif;
 }
 th {
@@ -26,7 +26,7 @@ input.noShow{
 	display: none;
 }
 input.inputName{
-	width:140px;
+	width:100px;
 }
 input[type="range"].wagerInput{
 	width: 100px;
@@ -38,7 +38,7 @@ input.bidInput{
 	width: 50px;
 }
 input.scoreInput{
-	width: 120px;
+	width: 90px;
 }
 td i{
 	width: 60px;
