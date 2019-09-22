@@ -8,13 +8,15 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { JeopardyScoreboardComponent } from './jeopardy-scoreboard/jeopardy-scoreboard.component';
 import { OhhellComponent } from './ohhell/ohhell.component';
+import { PlayerlogComponent } from './playerlog/playerlog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScoreboardComponent,
     JeopardyScoreboardComponent,
-    OhhellComponent
+    OhhellComponent,
+    PlayerlogComponent
   ],
   imports: [
     BrowserModule,

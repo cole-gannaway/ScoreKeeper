@@ -1,4 +1,5 @@
 import { UrlHandlingStrategy } from '@angular/router';
+import { RoundLogTimeStamp } from './app/round-log-time-stamp';
 
 var initWagerClassName = 'wagerInput';
 export class Player {
@@ -7,8 +8,8 @@ export class Player {
     score: Number;
     wager: Number;
     wagerClassName: string;
-
     hide: boolean;
+    log: any;
 
     constructor(){
         this.name = null;
@@ -17,6 +18,7 @@ export class Player {
         this.wager = null;
         this.wagerClassName = initWagerClassName;
         this.hide = false;
+        this.log = {};
     }
     setName(n:string) {
         this.name = n;
@@ -54,6 +56,9 @@ export class Player {
     resetWagerHide(){
         this.hide = false;
     }
+    addLog(id:string){
+        this.log[id] = this.score;
+    }
     static getComparatorScores (){
         return function(a:Player, b:Player) {
             return Number(b.score) - Number(a.score);
@@ -62,4 +67,5 @@ export class Player {
     static getInitWagerClassName(){
         return initWagerClassName;
     }
+
 }

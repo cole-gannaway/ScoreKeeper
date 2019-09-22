@@ -19,5 +19,8 @@
 <app-jeopardy-scoreboard [data]='players'></app-jeopardy-scoreboard>
 <div align = "center">
 	<mat-slide-toggle color="warn" (change)="toggleJeopardyMode($event)"></mat-slide-toggle>
-	<p>Jeopardy Mode</p>
+	<p>Jeopardy Mode </p>
+	<i class="fa fa-line-chart" aria-hidden="true" (click)="toggleShowLogGrid()"></i>
 </div>
+
+<app-playerlog [log]='log' [data]='players' [showLog]='showLogGrid'></app-playerlog>

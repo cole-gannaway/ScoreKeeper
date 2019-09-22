@@ -20,6 +20,9 @@ p{
 i.fa.fa-user-plus {
     color: green;
 }
+i.fa.fa-line-chart {
+	color: white;
+}
 
 /* The switch - the box around the slider */
 .switch {

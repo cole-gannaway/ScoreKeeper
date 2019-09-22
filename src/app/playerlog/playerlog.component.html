@@ -1,0 +1,11 @@
+<table align="center" class="{{showTable}}">
+    <!-- Dynamic Rounds on Player 1 -->
+    <tr>
+        <th>Name</th>
+        <th *ngFor="let value of logger.getLog()">{{value}} </th>
+    </tr>
+    <tr *ngFor="let player of players">
+        <td>{{player.name}}</td>
+        <td *ngFor="let value of logger.getLog(); let i = index;">{{player.log[i.toString()]}}</td>
+    </tr>
+</table>

@@ -1,0 +1,27 @@
+/*Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+* {
+	font-size: 26px;
+	font-family: 'Raleway', sans-serif;
+}
+th {
+	padding: 16px;
+}
+th, td {
+	color: white;
+	border: 1px solid white;
+	border-radius: 5%;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+input {
+    background: transparent;
+	color: white;
+	text-align: center;
+	border: 0px;
+}
+table.false{
+	display: none;
+}
